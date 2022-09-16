@@ -26,9 +26,11 @@ class CuitOneAction
 
     /**
      */
-    public function __invoke(string $cuit)
+    public function __invoke(string $id)
     {
+$user_cuit = $this->repository->findOneByCuit($id);
 
-        return new JsonResponse($this->repository->findBy(['cuit' => $cuit]));
+
+        return new JsonResponse($user_cuit);
     }
 }

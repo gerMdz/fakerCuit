@@ -29,7 +29,7 @@ App\Entity\UserCuit:
 #    ApiPlatform\Metadata\Get: ~
     get_one_cuit:
       method: GET
-      path: /cuit/{cuit}
+      path: /cuit/{id}/data
 #      uriTemplate: /cuit/{cuit}
       controller: App\Action\Cuit\CuitOneAction
       deserialize: false

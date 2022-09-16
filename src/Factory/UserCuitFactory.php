@@ -40,21 +40,23 @@ final class UserCuitFactory extends ModelFactory
     protected function getDefaults(): array
     {
         $cuit = new CuitService();
+        $nroCuit = $cuit::cuitNumber();
+
         return [
 //            'id'=> $cuit::cuit(),
             'email' => self::faker()->email(),
             'nombre' => self::faker()->firstName(),
             'apellido' => self::faker()->lastName(),
-            'numeroCui' => $cuit::cuitNumber(),
+            'numeroCui' => $nroCuit,
             'tipoCui' => 'cuit',
-            'relacionLaboral' => self::faker()->text(),
-            'tipoCuenta' => self::faker()->text(),
-            'puesto' => self::faker()->text(),
-            'areaSigla' => self::faker()->text(),
+            'relacionLaboral' => self::faker()->words(1,6),
+            'tipoCuenta' => self::faker()->word(),
+            'puesto' => self::faker()->jobTitle(),
+            'areaSigla' => strtoupper(self::faker()->randomLetter().self::faker()->randomLetter().self::faker()->randomLetter().self::faker()->randomLetter().self::faker()->randomLetter().self::faker()->randomLetter()),
             'areaActiva' => self::faker()->boolean(),
-            'domicilioLaboral' => self::faker()->address() . ' Nro: ' . self::faker()->numberBetween(0,1000),
+            'domicilioLaboral' => self::faker()->streetAddress(),
             'ramaJerarquica' => [],
-            'cuit' => $cuit::cuitNumber(),
+           'cuit' => $nroCuit,
         ];
     }
 
