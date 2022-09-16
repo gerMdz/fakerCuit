@@ -1,0 +1,30 @@
+App\Entity\UserCuit:
+  attributes:
+    id:
+      groups: [cuit_read]
+    email:
+      groups: [cuit_read]
+    nombre:
+      groups: [cuit_read]
+    apellido:
+      groups: [cuit_read]
+    numeroCui:
+      groups: [cuit_read]
+    tipoCui:
+      groups: [cuit_read]
+    relacionLaboral:
+      groups: [cuit_read]
+    tipoCuenta:
+      groups: [cuit_read]
+    puesto:
+      groups: [cuit_read]
+    areaSigla:
+      groups: [cuit_read]
+    areaActiva:
+      groups: [cuit_read]
+    domicilioLaboral:
+      groups: [cuit_read]
+    ramaJerarquica:
+      groups: [cuit_read]
+    cuit:
+      groups: [cuit_read]

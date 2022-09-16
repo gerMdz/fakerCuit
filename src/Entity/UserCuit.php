@@ -5,6 +5,7 @@ namespace App\Entity;
 
 use App\Repository\UserCuitRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Uid\Uuid;
 
 /**
  *
@@ -14,10 +15,11 @@ class UserCuit
 {
     /**
      * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="string", )
+     * @ORM\Column(type="uuid", unique=true)
+     * @ORM\GeneratedValue(strategy="CUSTOM")
+     * @ORM\CustomIdGenerator(class="doctrine.uuid_generator")
      */
-    private $id;
+    private ?Uuid $id;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -75,11 +77,27 @@ class UserCuit
     private $domicilioLaboral;
 
     /**
-     * @ORM\Column(type="array")
+     * @ORM\Column(type="json")
      */
     private $ramaJerarquica = [];
 
-    public function getId(): ?int
+    /**
+     * @ORM\Column(type="string", length=11)
+     */
+    private $cuit;
+
+//    /**
+//     * @param mixed $id
+//     */
+//    public function setId($id): self
+//    {
+//        $this->id = $id;
+//        return $this;
+//    }
+
+
+
+    public function getId(): ?Uuid
     {
         return $this->id;
     }
@@ -224,6 +242,18 @@ class UserCuit
     public function setRamaJerarquica(array $ramaJerarquica): self
     {
         $this->ramaJerarquica = $ramaJerarquica;
+
+        return $this;
+    }
+
+    public function getCuit(): ?string
+    {
+        return $this->cuit;
+    }
+
+    public function setCuit(string $cuit): self
+    {
+        $this->cuit = $cuit;
 
         return $this;
     }

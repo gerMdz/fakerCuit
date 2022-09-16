@@ -39,28 +39,26 @@ class UserCuitRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
-//     * @return UserCuit[] Returns an array of UserCuit objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('u')
-//            ->andWhere('u.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('u.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    /**
+     * @return UserCuit[] Returns an array of UserCuit objects
+     */
+    public function findAllOnlyCuit(): array
+    {
+        return $this->createQueryBuilder('u')
+            ->select('u.cuit')
+            ->orderBy('u.apellido', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 
-//    public function findOneBySomeField($value): ?UserCuit
-//    {
-//        return $this->createQueryBuilder('u')
-//            ->andWhere('u.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    public function findOneByCuit($value): ?UserCuit
+    {
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.cuit = :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
 }

@@ -41,11 +41,11 @@ final class UserCuitFactory extends ModelFactory
     {
         $cuit = new CuitService();
         return [
-            'id'=> $cuit::cuit(),
+//            'id'=> $cuit::cuit(),
             'email' => self::faker()->email(),
             'nombre' => self::faker()->firstName(),
             'apellido' => self::faker()->lastName(),
-            'numeroCui' => $cuit::cuit(),
+            'numeroCui' => $cuit::cuitNumber(),
             'tipoCui' => 'cuit',
             'relacionLaboral' => self::faker()->text(),
             'tipoCuenta' => self::faker()->text(),
@@ -54,6 +54,7 @@ final class UserCuitFactory extends ModelFactory
             'areaActiva' => self::faker()->boolean(),
             'domicilioLaboral' => self::faker()->address() . ' Nro: ' . self::faker()->numberBetween(0,1000),
             'ramaJerarquica' => [],
+            'cuit' => $cuit::cuitNumber(),
         ];
     }
 

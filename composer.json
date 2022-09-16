@@ -4,7 +4,7 @@
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
-        "php": ">=7.2.5",
+        "php": ">=7.4",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "api-platform/core": "^2.7",
@@ -22,6 +22,7 @@
         "symfony/proxy-manager-bridge": "5.4.*",
         "symfony/runtime": "5.4.*",
         "symfony/twig-bundle": "^5.4",
+        "symfony/uid": "^5.4",
         "symfony/yaml": "5.4.*"
     },
     "config": {

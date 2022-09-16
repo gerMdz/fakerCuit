@@ -1,0 +1,49 @@
+App\Entity\UserCuit:
+  attributes:
+    normalizationContext:
+      groups: [cuit_read]
+  collectionOperations:
+    get_all_cuit:
+      method: GET
+      path: /all
+      controller: App\Action\Cuit\CuitAction
+      deserialize: false
+      normalization_context:
+        groups: [cuit_read]
+      openapi_context:
+        summary: Lista un usuario por cuit
+        responses:
+          200:
+            description: OK
+            content:
+              application/json:
+                schema:
+                  type: object
+#                  properties:
+#                    title:
+#                      type: string
+#                    slug:
+#                      type: string
+
+  itemOperations:
+#    ApiPlatform\Metadata\Get: ~
+    get_one_cuit:
+      method: GET
+      path: /cuit/{cuit}
+#      uriTemplate: /cuit/{cuit}
+      controller: App\Action\Cuit\CuitOneAction
+      deserialize: false
+      read: false
+#      normalizationContext:
+#      normalization_context:
+#        groups: [cuit_read]
+#      openapi_context:
+#        summary: Lista un usuario por cuit
+#        responses:
+#          200:
+#            description: OK
+#            content:
+#              application/json:
+#                schema:
+#                  type: object
+#      security: is_granted("cuit_read", object)

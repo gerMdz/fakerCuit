@@ -1,4 +1,0 @@
-resources:
-  App\Entity\UserCuit:
-    normalizationContext:
-      groups: ['read']
