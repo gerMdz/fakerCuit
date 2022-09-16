@@ -29,7 +29,6 @@ class CuitOneAction
     public function __invoke(string $cuit)
     {
 
-//dd($this->repository->findBy(['cuit' => $cuit]));
         return new JsonResponse($this->repository->findBy(['cuit' => $cuit]));
     }
 }
