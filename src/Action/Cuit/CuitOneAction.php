@@ -28,15 +28,18 @@ class CuitOneAction
 
     /**
      */
-    public function __invoke(string $cuit)
+    public function __invoke(string $id)
     {
-        if (strlen($cuit) !== 11) {
+
+        if (strlen($id) !== 11) {
             throw BadCuitException::fromRequest();
         }
-        if (!$person = $this->repository->findBy(['cuit' => $cuit])) {
+        ;
+        if (!$user_cuit = $this->repository->findOneByCuit($id)) {
             throw CuitNotFoundException::fromCuit();
         }
 
-        return new JsonResponse($this->repository->findBy(['cuit' => $cuit]));
+
+        return new JsonResponse($user_cuit[0]);
     }
 }
