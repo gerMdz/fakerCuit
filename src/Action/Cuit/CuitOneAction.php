@@ -2,6 +2,8 @@
 
 namespace App\Action\Cuit;
 
+use App\Exception\BadCuitException;
+use App\Exception\CuitNotFoundException;
 use App\Repository\UserCuitRepository;
 use Doctrine\ORM\NoResultException;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -28,6 +30,12 @@ class CuitOneAction
      */
     public function __invoke(string $cuit)
     {
+        if (strlen($cuit) !== 11) {
+            throw BadCuitException::fromRequest();
+        }
+        if (!$person = $this->repository->findBy(['cuit' => $cuit])) {
+            throw CuitNotFoundException::fromCuit();
+        }
 
         return new JsonResponse($this->repository->findBy(['cuit' => $cuit]));
     }
