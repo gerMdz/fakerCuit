@@ -52,13 +52,14 @@ class UserCuitRepository extends ServiceEntityRepository
         ;
     }
 
-    public function findOneByCuit($value): ?UserCuit
+    public function findOneByCuit($value)
     {
         return $this->createQueryBuilder('u')
             ->andWhere('u.cuit = :val')
             ->setParameter('val', $value)
             ->getQuery()
-            ->getOneOrNullResult()
+            ->getArrayResult()
+
         ;
     }
 }
