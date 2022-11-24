@@ -79,7 +79,7 @@ class UserCuit
     /**
      * @ORM\Column(type="json")
      */
-    private $ramaJerarquica = [];
+    private $ramaEstructura = [];
 
     /**
      * @ORM\Column(type="string", length=11)
@@ -234,14 +234,14 @@ class UserCuit
         return $this;
     }
 
-    public function getRamaJerarquica(): ?array
+    public function getRamaEstructura(): ?array
     {
-        return $this->ramaJerarquica;
+        return $this->ramaEstructura;
     }
 
-    public function setRamaJerarquica(array $ramaJerarquica): self
+    public function setRamaEstructura(array $ramaEstructura): self
     {
-        $this->ramaJerarquica = $ramaJerarquica;
+        $this->ramaEstructura = $ramaEstructura;
 
         return $this;
     }

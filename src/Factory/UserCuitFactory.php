@@ -55,7 +55,7 @@ final class UserCuitFactory extends ModelFactory
             'areaSigla' => strtoupper(self::faker()->randomLetter().self::faker()->randomLetter().self::faker()->randomLetter().self::faker()->randomLetter().self::faker()->randomLetter().self::faker()->randomLetter()),
             'areaActiva' => self::faker()->boolean(),
             'domicilioLaboral' => self::faker()->streetAddress(),
-            'ramaJerarquica' => [],
+            'ramaEstructura' => [],
            'cuit' => $nroCuit,
         ];
     }

@@ -24,7 +24,7 @@ App\Entity\UserCuit:
       groups: [cuit_read]
     domicilioLaboral:
       groups: [cuit_read]
-    ramaJerarquica:
+    ramaEstructura:
       groups: [cuit_read]
     cuit:
       groups: [cuit_read]
