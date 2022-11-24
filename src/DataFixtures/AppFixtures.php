@@ -14,7 +14,7 @@ class AppFixtures extends Fixture
         $user = new UserCuit();
 
         $user
-            ->setRamaJerarquica(['DGISIS,ASINF,SSSYP,MJGGC,AJG,GCBA,Usuarios'])
+            ->setRamaEstructura(['DGISIS,ASINF,SSSYP,MJGGC,AJG,GCBA,Usuarios'])
             ->setDomicilioLaboral('ZUVIRIA 64')
             ->setAreaActiva(true)
             ->setAreaSigla('DGISIS')
